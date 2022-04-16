@@ -12,7 +12,7 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bayu.demolistadapter.R
-import com.bayu.demolistadapter.core.data.utils.SORTING
+import com.bayu.demolistadapter.core.data.utils.Sorting
 import com.bayu.demolistadapter.databinding.FragmentTasksBinding
 import com.bayu.demolistadapter.domain.task.Task
 import com.bayu.demolistadapter.presentation.base.BaseFragment
@@ -61,12 +61,12 @@ class TasksFragment : BaseFragment<FragmentTasksBinding>() {
             when (it.itemId) {
                 R.id.sortLatest -> {
                     it.isChecked = true
-                    viewModel.setTasksSorting(SORTING.LATEST)
+                    viewModel.setTasksSorting(Sorting.LATEST)
                     true
                 }
                 R.id.sortOldest -> {
                     it.isChecked = true
-                    viewModel.setTasksSorting(SORTING.OLDEST)
+                    viewModel.setTasksSorting(Sorting.OLDEST)
                     true
                 }
                 else -> false

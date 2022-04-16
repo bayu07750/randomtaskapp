@@ -2,7 +2,7 @@ package com.bayu.demolistadapter.presentation.tasks
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bayu.demolistadapter.core.data.utils.SORTING
+import com.bayu.demolistadapter.core.data.utils.Sorting
 import com.bayu.demolistadapter.domain.task.Task
 import com.bayu.demolistadapter.domain.task.TaskRepository
 import com.bayu.demolistadapter.domain.task.usecase.SearchSortingTasksUseCase
@@ -25,7 +25,7 @@ class TasksViewModel @Inject constructor(
     private val searchSortingTasksUseCase: SearchSortingTasksUseCase
 ) : ViewModel() {
 
-    private val _tasksSorting = MutableStateFlow(SORTING.LATEST)
+    private val _tasksSorting = MutableStateFlow(Sorting.LATEST)
     private val _queryTask = MutableStateFlow("")
 
     private val _tasksUiState = MutableStateFlow(TasksUiState())
@@ -41,7 +41,7 @@ class TasksViewModel @Inject constructor(
         }
     }
 
-    fun setTasksSorting(sorting: SORTING) {
+    fun setTasksSorting(sorting: Sorting) {
         _tasksSorting.update { sorting }
     }
 

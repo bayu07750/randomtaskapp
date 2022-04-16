@@ -1,7 +1,7 @@
 package com.bayu.demolistadapter.core.data.repository
 
 import com.bayu.demolistadapter.core.data.source.local.TaskLocalDataSource
-import com.bayu.demolistadapter.core.data.utils.SORTING
+import com.bayu.demolistadapter.core.data.utils.Sorting
 import com.bayu.demolistadapter.core.data.utils.TaskMapper.Companion.toDomain
 import com.bayu.demolistadapter.core.data.utils.TaskMapper.Companion.toEntity
 import com.bayu.demolistadapter.domain.task.Task
@@ -28,19 +28,19 @@ class TaskRepositoryImp @Inject constructor(
         taskLocalDataSource.delete(task.toEntity())
     }
 
-    override fun getTasks(sorting: SORTING): Flow<List<Task>> {
+    override fun getTasks(sorting: Sorting): Flow<List<Task>> {
         return when (sorting) {
-            SORTING.LATEST -> taskLocalDataSource.getLatest()
+            Sorting.LATEST -> taskLocalDataSource.getLatest()
                 .map { items -> items.map { it.toDomain() } }
-            SORTING.OLDEST -> taskLocalDataSource.getOldest()
+            Sorting.OLDEST -> taskLocalDataSource.getOldest()
                 .map { items -> items.map { it.toDomain() } }
         }
     }
 
-    override fun getTasksByTitle(sorting: SORTING, query: String): Flow<List<Task>> {
+    override fun getTasksByTitle(sorting: Sorting, query: String): Flow<List<Task>> {
         return when (sorting) {
-            SORTING.LATEST -> getLatestTasksByTitle(query)
-            SORTING.OLDEST -> getOldestTasksByTitle(query)
+            Sorting.LATEST -> getLatestTasksByTitle(query)
+            Sorting.OLDEST -> getOldestTasksByTitle(query)
         }
     }
 

@@ -1,6 +1,6 @@
 package com.bayu.demolistadapter.domain.task.usecase
 
-import com.bayu.demolistadapter.core.data.utils.SORTING
+import com.bayu.demolistadapter.core.data.utils.Sorting
 import com.bayu.demolistadapter.domain.task.Task
 import com.bayu.demolistadapter.domain.task.TaskRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -13,7 +13,7 @@ class GetTasksUseCase @Inject constructor(
     private val taskRepository: TaskRepository
 ) {
 
-    operator fun invoke(tasksSorting: Flow<SORTING>): Flow<List<Task>> {
+    operator fun invoke(tasksSorting: Flow<Sorting>): Flow<List<Task>> {
         return tasksSorting.flatMapLatest { taskRepository.getTasks(it) }
     }
 }

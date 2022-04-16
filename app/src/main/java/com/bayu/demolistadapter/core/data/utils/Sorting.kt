@@ -1,6 +1,6 @@
 package com.bayu.demolistadapter.core.data.utils
 
-enum class SORTING {
+enum class Sorting {
     LATEST,
     OLDEST,
 }

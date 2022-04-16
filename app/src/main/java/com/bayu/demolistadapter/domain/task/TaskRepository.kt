@@ -1,6 +1,6 @@
 package com.bayu.demolistadapter.domain.task
 
-import com.bayu.demolistadapter.core.data.utils.SORTING
+import com.bayu.demolistadapter.core.data.utils.Sorting
 import kotlinx.coroutines.flow.Flow
 
 interface TaskRepository {
@@ -11,9 +11,9 @@ interface TaskRepository {
 
     suspend fun delete(task: Task)
 
-    fun getTasks(sorting: SORTING): Flow<List<Task>>
+    fun getTasks(sorting: Sorting): Flow<List<Task>>
 
-    fun getTasksByTitle(sorting: SORTING, query: String): Flow<List<Task>>
+    fun getTasksByTitle(sorting: Sorting, query: String): Flow<List<Task>>
 
     fun getLatestTasksByTitle(query: String): Flow<List<Task>>
 
