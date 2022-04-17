@@ -17,6 +17,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables { useSupportLibrary = true }
     }
 
     buildTypes {
@@ -37,6 +38,15 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.1.1"
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
@@ -81,6 +91,14 @@ dependencies {
 
     // leak canary
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.8.1")
+
+    // compose
+    implementation("androidx.compose.ui:ui:1.1.1")
+    implementation("androidx.compose.material:material:1.1.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.1.1")
+    implementation("androidx.activity:activity-compose:1.4.0")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.1")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.1.1")
 }
 
 kapt {
