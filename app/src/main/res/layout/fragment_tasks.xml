@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="No tasks yet!"
+        android:text="@string/no_tasks_yet"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

@@ -99,6 +99,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.4.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.1")
     debugImplementation("androidx.compose.ui:ui-tooling:1.1.1")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 }
 
 kapt {
