@@ -9,6 +9,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.dp
 import com.bayu.demolistadapter.R
 import com.bayu.demolistadapter.core.data.utils.Sorting
 
@@ -18,10 +20,12 @@ fun DropdownMenuRadio(
     setIsShowMenu: (Boolean) -> Unit,
     sortingTask: Sorting,
     setSortingTask: (Sorting) -> Unit,
+    offset: DpOffset = DpOffset(0.dp, 0.dp)
 ) {
     DropdownMenu(
         expanded = isShowMenu,
-        onDismissRequest = { setIsShowMenu(false) }
+        onDismissRequest = { setIsShowMenu(false) },
+        offset = offset,
     ) {
         DropdownMenuRadioItem(
             text = stringResource(id = R.string.sort_latest),

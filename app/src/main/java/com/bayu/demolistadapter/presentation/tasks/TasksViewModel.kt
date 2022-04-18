@@ -29,6 +29,7 @@ class TasksViewModel @Inject constructor(
     val tasksSorting = _tasksSorting.asStateFlow()
 
     private val _queryTask = MutableStateFlow("")
+    val queryTask = _queryTask.asStateFlow()
 
     private val _tasksUiState = MutableStateFlow(TasksUiState())
     val tasksUiState = _tasksUiState.asStateFlow()

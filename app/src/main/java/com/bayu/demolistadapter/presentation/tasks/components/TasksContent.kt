@@ -15,6 +15,8 @@ fun TasksContent(
     sortingTask: Sorting,
     setSortingTask: (Sorting) -> Unit,
     addRandomTask: (Task) -> Unit,
+    queryTask: String,
+    setQueryTask: (String) -> Unit,
     content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold(
@@ -24,7 +26,9 @@ fun TasksContent(
                 isShowMenu = isShowMenu,
                 setIsShowMenu = setIsShowMenu,
                 sortingTask = sortingTask,
-                setSortingTask = setSortingTask
+                setSortingTask = setSortingTask,
+                queryTask = queryTask,
+                setQueryTask = setQueryTask,
             )
         },
         floatingActionButton = {

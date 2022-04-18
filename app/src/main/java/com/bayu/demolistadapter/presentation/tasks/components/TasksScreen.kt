@@ -11,16 +11,16 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.bayu.demolistadapter.R
 import com.bayu.demolistadapter.presentation.tasks.TasksViewModel
 
 @Composable
 fun TasksScreen(
-    viewModel: TasksViewModel = hiltViewModel()
+    viewModel: TasksViewModel,
 ) {
     val taskUiState by viewModel.tasksUiState.collectAsState()
     val sortingTask by viewModel.tasksSorting.collectAsState()
+    val queryTask by viewModel.queryTask.collectAsState()
 
     val scaffoldState = rememberScaffoldState()
     val (isShowMenu, setIsShowMenu) = remember { mutableStateOf(false) }
@@ -32,6 +32,8 @@ fun TasksScreen(
         sortingTask = sortingTask,
         setSortingTask = viewModel::setTasksSorting,
         addRandomTask = viewModel::addTask,
+        queryTask = queryTask,
+        setQueryTask = viewModel::setQueryTask
     ) { innerPadding ->
         val lazyListState = rememberLazyListState()
 
